@@ -17,9 +17,16 @@ async def get(request: Request):
 @app.websocket('/ws')
 async def websocket_endpoint(websocket: WebSocket):
     await websocket.accept()
+    counter = 1
     try:
         while True:
             data = await websocket.receive_json()
+            message = data.get('message')
+            if message:
+                data['message'] = f'{counter}. {message}'
+                counter += 1
+            else:
+                print("error: don't find message in json data")
             await websocket.send_json(data)
     except WebSocketDisconnect:
         pass

@@ -24,9 +24,7 @@
                 </div>
             </div>
             <div class="col-8 mt-3">
-                <div class="card-body fs-5" style="word-break:break-all;">
-                    <ol id='messages'>
-                    </ol>
+                <div id='messages' class="card-body fs-5" style="word-break:break-all;">
                 </div>
             </div>
         </div>
@@ -34,7 +32,7 @@
             var ws = new WebSocket("ws://localhost:8000/ws");
             ws.onmessage = function(event) {
                 var messages = document.getElementById('messages')
-                var message = document.createElement('li')
+                var message = document.createElement('p')
                 var json_content = JSON.parse(event.data)
                 var content = document.createTextNode(json_content.message)
                 message.appendChild(content)
