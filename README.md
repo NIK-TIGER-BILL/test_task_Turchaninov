@@ -1,7 +1,6 @@
 # Тестовое задание для компании Турчанинов
 [![Python](https://img.shields.io/badge/-Python-464646?style=flat-square&logo=Python)](https://www.python.org/)
 [![FastAPI](https://img.shields.io/badge/-FastAPI-464646?style=flat-square&logo=FastAPI)](https://fastapi.tiangolo.com/)
-[![Nginx](https://img.shields.io/badge/-NGINX-464646?style=flat-square&logo=NGINX)](https://nginx.org/ru/)
 [![docker](https://img.shields.io/badge/-Docker-464646?style=flat-square&logo=docker)](https://www.docker.com/)  
   
 Задание выполнялось для компании Турчанинов  
@@ -20,3 +19,4 @@ docker build -t self_chat .
 ```
 docker run -it -p 8000:8000 self_chat
 ```
+Сервер будет доступен по адресу: http://localhost:8000/
