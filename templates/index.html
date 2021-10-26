@@ -34,7 +34,7 @@
                 var messages = document.getElementById('messages')
                 var message = document.createElement('p')
                 var json_content = JSON.parse(event.data)
-                var content = document.createTextNode(json_content.message)
+                var content = document.createTextNode(`${json_content.counter}. ${json_content.message}`)
                 message.appendChild(content)
                 messages.appendChild(message)
             };

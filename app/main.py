@@ -21,12 +21,11 @@ async def websocket_endpoint(websocket: WebSocket):
     try:
         while True:
             data = await websocket.receive_json()
-            message = data.get('message')
-            if message:
-                data['message'] = f'{counter}. {message}'
+            if data.get('message'):
+                data['counter'] = counter
                 counter += 1
+                await websocket.send_json(data)
             else:
                 print("error: don't find message in json data")
-            await websocket.send_json(data)
     except WebSocketDisconnect:
         pass
